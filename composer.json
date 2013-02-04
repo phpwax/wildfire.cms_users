@@ -8,5 +8,12 @@
     ],
     "require": {
 
+    },
+    "license": "MIT",
+    "autoload": {
+      "classmap": [
+        "lib/", "resources/", "view/"
+      ],
+      "files": ["ini.php"]
     }
 }
