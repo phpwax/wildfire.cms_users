@@ -1,14 +1,11 @@
 <div id="login">
   <form id="" method="post" class="waxform blocked_inline login_tiger" enctype="multipart/form-data">
     <h1><span>Login to WildFire</span></h1>
-    <?=info_messages()?>
-    <?=error_messages()?>
     <fieldset>
       <?foreach(array("username", "password") as $el):?>
         <span class="clearfix <?=$el?>"><?=$form->$el->render(array("placeholder"=>ucfirst($el)))?></span>
       <?endforeach?>
       <input type="submit" name="Login" value="Login" id="Login" class="input_field submit_field submit_button" placeholder="Login">
-      <input type="checkbox" name="remember" id="remember_me" value="1" checked="checked"><label for="remember_me" class='remember'>remember me on this computer</label>
     </fieldset>
   </form>
 </div>

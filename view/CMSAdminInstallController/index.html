@@ -1,2 +1,11 @@
-<div class='user_information'><p>Please fill in the details below for create the default user</p></div>
-<?=$form->render()?>
+<div id="login">
+  <form id="" method="post" class="waxform blocked_inline login_tiger" enctype="multipart/form-data">
+    <h1><span>Setup WildFire user</span></h1>
+    <fieldset>
+      <?foreach(array("username", "password") as $el):?>
+        <span class="clearfix <?=$el?>"><?=$form->$el->render(array("placeholder"=>ucfirst($el)))?></span>
+      <?endforeach?>
+      <input type="submit" name="Login" value="Login" id="Login" class="input_field submit_field submit_button" placeholder="Login">
+    </fieldset>
+  </form>
+</div>
