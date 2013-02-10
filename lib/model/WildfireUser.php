@@ -42,7 +42,11 @@ class WildfireUser extends WaxModel {
 
   public function permissions($operation_actions, $module_name){
     $permissions = array();
-    foreach($operation_actions as $oa) if($this->allowed($module_name, $oa)) $permissions[$oa] = 1;
+    foreach($operation_actions as $i){
+      if(is_array($i)) $oa = $i['action'];
+      else $oa = $i;
+      if( $this->allowed($module_name, $oa)) $permissions[$oa] = 1;
+    }
     return $permissions;
   }
 
