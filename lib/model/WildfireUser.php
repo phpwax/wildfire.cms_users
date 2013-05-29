@@ -8,11 +8,11 @@ class WildfireUser extends WaxModel {
   public static $salt = "wildfire";
 
   public function setup() {
-    $this->define("username", "CharField", array("required"=>true, 'export'=>true, "blank"=>false,"unique"=>true, 'scaffold'=>true,'group'=>"details",'primary_group'=>1));
-    $this->define("firstname", "CharField", array('scaffold'=>true, 'export'=>true,'group'=>"details",'primary_group'=>1));
-    $this->define("surname", "CharField",array('scaffold'=>true, 'export'=>true,'group'=>"details",'primary_group'=>1));
-    $this->define("email", "CharField", array('scaffold'=>true, 'export'=>true,'group'=>"details",'primary_group'=>1));
-    $this->define("password", "PasswordField", array('label'=>'Enter your password', 'group'=>'password'));
+    $this->define("username", "CharField", array("required"=>true, 'export'=>true, "blank"=>false,"unique"=>true, 'scaffold'=>true, "group"=>"User Details", "primary_group"=>1));
+    $this->define("firstname", "CharField", array('scaffold'=>true, 'export'=>true, "group"=>"User Details", "primary_group"=>1));
+    $this->define("surname", "CharField",array('scaffold'=>true, 'export'=>true, "group"=>"User Details", "primary_group"=>1));
+    $this->define("email", "CharField", array('scaffold'=>true, 'export'=>true, "group"=>"User Details", "primary_group"=>1));
+    $this->define("password", "PasswordField", array('label'=>'Enter your password', "group"=>"User Details", "primary_group"=>1));
     $this->define("auth_token", "CharField", array('disabled'=>'disabled', 'group'=>'token auth'));
     $this->define("user_permissions", "HasManyField", array('editable'=>true,'target_model' => 'WildfirePermissionBlacklist', 'eager_loading' => true, 'group'=>'permissions'));
     parent::setup();
