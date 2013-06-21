@@ -1,9 +1,10 @@
 <?
 $restricted_trees = array();
 ?>
-<div class='user-permissions clearfix'>
-  <div class='field module-access'>
-    <h2>Module Access</h3>
+<div class='user-permissions clearfix '>
+  <div class='meta_tabs accordion clearfix'>
+    <h3 class='accordion_header meta-tab-title'><span>Module Access</span></h3>
+    <div class="meta-tab clearfix">
     <div class='scroller'>
     <?foreach(CMSApplication::get_modules() as $name=>$info):?>
     <?if(!$info["hidden"]):?>
@@ -44,10 +45,10 @@ $restricted_trees = array();
     <?endif?>
     <?endforeach?>
     </div>
-  </div>
+    </div>
 
-  <div class='field module-access sub-tree'>
-    <h2>Restrict trees</h2>
+    <h3  class='accordion_header meta-tab-title'><span>Restrict trees</span></h3>
+    <div class="meta-tab clearfix">
     <?foreach($restricted_trees as $class):?>
       <h4><?=$class?></h4>
       <?
@@ -66,6 +67,7 @@ $restricted_trees = array();
         <?endforeach?>
       </select>
     <?endforeach?>
+    </div>
   </div>
 
 </div>
