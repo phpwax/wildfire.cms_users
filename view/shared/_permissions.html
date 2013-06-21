@@ -23,7 +23,10 @@ $restricted_trees = array();
         <h3><?=$name?> <small>(<?=$class?>)</small></h3>
         <ul>
           <?foreach($operations as $op):?>
-          <?$id = $class."_".$op?>
+          <?
+            if(is_array($op)) $op = $op['action'];
+            $id = $class."_".$op;
+          ?>
           <li class='clearfix join-option<?if(!$model->allowed($name, $op)):?> join-yes<?else:?> join-no<?endif?> '><input type="checkbox" value="<?=$op?>" <?if(!$model->allowed($name, $op)):?>checked="checked" <?endif?>id="<?=$id?>" name="user_permissions[<?=$name?>][<?=$op?>]"><label for="<?=$id?>">Block: <?=$op?></label></li>
           <?endforeach?>
         </ul>
