@@ -25,8 +25,8 @@ class WildfireUser extends WaxModel {
 
   protected function set_permissions_cache(){
     if(!WildfireUser::$permissions_cache[get_class($this)][$this->primval]){
-      WildfireUser::$permissions_cache[get_class($this)][$this->primval] = true; //set to true, empty array triggers false
-      foreach($this->user_permissions as $perm) WildfireUser::$permissions_cache[get_class($this)][$this->primval][$perm->class][$perm->operation] = $perm->value;
+      WildfireUser::$permissions_cache[get_class($this)][$this->primval] = array('true'=>true); //set to true, empty array triggers false
+      foreach($this->user_permissions as $perm) WildfireUser::$permissions_cache[get_class($this)][$this->primval][$perm->class][$perm->operation] = ($perm->value) ? $perm->value : 1;
     }
   }
 
